@@ -19,7 +19,7 @@ export default function Post({ postData }) {
         <br />
         {postData.category ? (
           <p className={utilStyles.squareText}>
-            <Link href="/category/test"><a>{postData.category.name}</a></Link>
+            <Link href="/"><a>{postData.category.name}</a></Link>
           </p>
         ) : (<p className={utilStyles.noCategory}></p>)}
         {postData.image ? (
