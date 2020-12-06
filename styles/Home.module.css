@@ -36,3 +36,21 @@
   list-style-type: decimal;
   list-style-position: inside;
 }
+
+.postTeaser {
+  margin-bottom: 2em;
+}
+
+.postTeaser h2 a {
+  text-decoration: none;
+}
+
+.homeArchive {
+  margin-top: 3em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #fff;
+  width: 15em;
+  padding: 1em 0;
+}
