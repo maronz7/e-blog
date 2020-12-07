@@ -32,11 +32,10 @@ const SpMenu = () => {
       ) : <a className={styles.spOpenButton} onClick={openModal}><FaBars /></a>}
       <Modal
         isOpen={modalIsOpen}
-        // onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         style={customStyles}
+        ariaHideApp={false}
       >
-
         <nav>
           <ul className={styles.spMenuList}>
             <li><Link href="/"><a>Home</a></Link></li>
