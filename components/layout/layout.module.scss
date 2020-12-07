@@ -70,8 +70,11 @@
   }
 }
 
-#main{
-  width: 100%;
+.spMenu{
+  display:none;
+}
+
+.main{
   flex-basis: 80%;
   color: #333333;
 }
@@ -110,4 +113,44 @@
 
 .backToHome {
   margin: 3rem 0 0;
+}
+
+@media screen and (max-width:768px) {
+  
+  .header{
+    &__links{
+      display: none;
+    }
+  }
+
+  .spMenu{
+    display:block;
+  }
+
+  .main{
+    flex-basis: 100%;
+  }
+
+  .sidebar{
+    display: none;
+  }
+
+}
+
+@media screen and (min-width:768px) and (max-width:1024px) {
+
+  .header{
+    &__links{
+      display: none;
+    }
+  }
+
+  .main{
+    flex-basis: 100%;
+  }
+
+  .sidebar{
+    display: none;
+  }
+
 }

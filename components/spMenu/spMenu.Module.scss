@@ -1,0 +1,23 @@
+.spOpenButton{
+  position: fixed;
+  top: 4px;
+  right: 12px;
+  font-size: 1.5em;
+  display: block;
+}
+
+.spCloseButton{
+  position: fixed;
+  top: 4px;
+  right: 12px;
+  font-size: 1.5em;
+  display: block;
+}
+
+.spMenuList{
+  list-style-type: none;
+
+  li{
+    margin-bottom: 15px;
+  }
+}

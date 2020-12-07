@@ -2,6 +2,7 @@ import Head from 'next/head'
 import styles from './layout.module.css'
 import utilStyles from '../../styles/utils.module.css'
 import Link from 'next/link'
+import SpMenu from '../spMenu/spMenu'
 
 const name = 'Kurihara Keisuke'
 export const siteTitle = 'E-Blog'
@@ -36,8 +37,9 @@ export default function Layout({ children, home, sidebar }) {
             <li><Link href="/contact"><a>Contact</a></Link></li>
           </ul>
         </nav>
+        <div className={styles.spMenu}><SpMenu /></div>
       </header>
-      <main id="main">
+      <main className={styles.main}>
         {children}
         {!home && (
           <div className={styles.backToHome}>
