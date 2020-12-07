@@ -30,13 +30,12 @@
   border: 1px solid rgba(160,160,160,0.3);
   margin: 0 0 2em 0;
   position: relative;
-  width: 65em;
   display: flex;
   max-height: 20em;
   overflow: hidden;
 
   &__image{
-    flex-basis: 20%;
+    width: 20%;
     border-bottom: rgba(160,160,160,0.3);
     position: relative;
 
@@ -45,7 +44,7 @@
     }
   }
   &__summary{
-    flex-basis: 80%;
+    width: 80%;
     margin-left: 3em;
     border-bottom: rgba(160,160,160,0.3);
     position: relative;
@@ -65,4 +64,30 @@
     transform: translateY(-5px);
     }
   }
+}
+
+@media screen and (max-width:768px) {
+
+  .articleList{
+    flex-wrap: wrap;
+    max-height: none;
+    
+    &__image{
+      width: 100%;
+      order: 2;
+      
+      img{
+        width: 50%;
+      }
+    }
+    
+    &__summary{
+      width: 100%;
+      order: 1;
+      margin-left: 0;
+    }
+  }
+
+
+ 
 }
