@@ -33,7 +33,7 @@ export default function Layout({ children, home, sidebar }) {
           <ul>
             <li><Link href="/"><a>Home</a></Link></li>
             <li><Link href="/about"><a>About</a></Link></li>
-            <li><Link href="/"><a>Category</a></Link></li>
+            <li><Link href="/category/list"><a>Category</a></Link></li>
             <li><Link href="/contact"><a>Contact</a></Link></li>
           </ul>
         </nav>

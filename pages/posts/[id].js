@@ -19,7 +19,10 @@ export default function Post({ postData }) {
         <br />
         {postData.category ? (
           <p className={utilStyles.squareText}>
-            <Link href="/"><a>{postData.category.name}</a></Link>
+            <Link href={{
+              pathname: '/category/[category]',
+              query: {category: postData.category.name}
+            }}><a>{postData.category.name}</a></Link>
           </p>
         ) : (<p className={utilStyles.noCategory}></p>)}
         {postData.image ? (
