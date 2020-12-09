@@ -1,15 +1,22 @@
+import Head from 'next/head'
 import Layout from "../../components/layout/layout"
 import Article from "../../components/article/article" 
+import {siteTitle} from "../../components/layout/layout"
+
 
 export default function Category(props) {
   return (
     <Layout sidebar>
+      <Head>
+        <title>{siteTitle} - Category</title>
+      </Head>
       {props.categoryPostsData.map((postData) =>
       <Article 
           id={postData.id}
           title={postData.title}
           publishedAt={postData.publishedAt}
           content={postData.body}
+          categoryName={postData.category ? postData.category.name : ""}
           key={postData.id}
           />
       )}

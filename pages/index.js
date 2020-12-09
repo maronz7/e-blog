@@ -19,6 +19,7 @@ export default function Home({ allPostsData, hasArchive }) {
           publishedAt={postData.publishedAt}
           content={postData.body}
           imageUrl={postData.image ? postData.image.url : ""}
+          categoryName={postData.category ? postData.category.name : ""}
           key={postData.id}
         />
       ))}

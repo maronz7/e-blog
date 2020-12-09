@@ -1,10 +1,15 @@
+import Head from 'next/head'
 import Link from "next/link"
 import Layout from "../../components/layout/layout"
 import styles from "../../styles/Category.module.css"
+import {siteTitle} from "../../components/layout/layout"
 
 export default function CategoryList(props) {
   return (
     <Layout sidebar>
+      <Head>
+        <title>{siteTitle} - Category List</title>
+      </Head>
       <div className={styles.container}>
       <ul className={styles.categoryList}>
         {Object.keys(props.allCategory).map(category => 

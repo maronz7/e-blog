@@ -1,12 +1,14 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import Layout, { siteTitle } from '../components/layout/layout'
 import styles from '../styles/About.module.css'
+import { FaGithub } from 'react-icons/fa'
 
 export default function About() {
     return (
     <Layout sidebar>
       <Head>
-        <title>{siteTitle}</title>
+        <title>{siteTitle} - About</title>
       </Head>
       <div className={styles.about}>
         <header className={styles.about__header}>ABOUT</header>
@@ -19,6 +21,7 @@ export default function About() {
         </ul>
         <p>現在はReactなどフロントエンドを中心に勉強中。仕事の依頼は問い合わせよりお願い致します。</p>
         <p>バンド演奏、サッカーあたりが好きです。</p>
+        <div><Link href="https://github.com/maronz7"><a><FaGithub size='40px'/></a></Link></div>
         </div>
       </div>
 

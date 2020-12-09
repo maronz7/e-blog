@@ -1,18 +1,24 @@
+import Head from 'next/head'
 import Layout from "../../components/layout/layout"
 import Pager from "../../components/pager/pager"
 import Article from '../../components/article/article'
+import {siteTitle} from "../../components/layout/layout"
 const COUNT_PER_PAGE = 4
 
 export default function Archive(props) {
   const { posts, page, total, perPage } = props
   return (
     <Layout sidebar>
+      <Head>
+        <title>{siteTitle} - Archive</title>
+      </Head>
         {posts.map(postData => (
           <Article 
           id={postData.id}
           title={postData.title}
           publishedAt={postData.publishedAt}
           content={postData.body}
+          categoryName={postData.category ? postData.category.name : ""}
           key={postData.id}
           />
         ))}

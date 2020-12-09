@@ -6,7 +6,7 @@ import styles from './article.module.css'
 
 const Article = (props) => {
 
-  const summaryText = props.content.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'').substr(0,200);
+  const summaryText = props.content.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, '').substr(0, 200);
 
   return (
     <Link href={`/posts/${props.id}`}>
@@ -22,6 +22,11 @@ const Article = (props) => {
             <small className={utilStyles.lightText}>
               <Date dateString={props.publishedAt} />
             </small>
+            {props.categoryName ? (
+              <p className={utilStyles.squareText}>
+                {props.categoryName}
+              </p>
+            ) : (<p className={utilStyles.noCategory}></p>)}
             <p>{summaryText}</p>
           </div>
         </article>

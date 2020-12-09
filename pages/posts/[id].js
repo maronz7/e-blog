@@ -4,12 +4,14 @@ import styles from '../../components/article/article.module.css'
 import Layout from '../../components/layout/layout'
 import utilStyles from '../../styles/utils.module.css'
 import Date from '../../components/date'
+import {siteTitle} from "../../components/layout/layout"
+
 
 export default function Post({ postData }) {
   return (
     <Layout sidebar>
       <Head>
-        <title>{"E-Blog -" + postData.title}</title>
+        <title>{siteTitle} - {postData.title}</title>
       </Head>
       <article className={styles.article} key={postData.id}>
         <h2>{postData.title}</h2>

@@ -6,7 +6,7 @@ export default function Custom404() {
     return (
     <Layout>
       <Head>
-        <title>{siteTitle}</title>
+        <title>{siteTitle} - Not Found</title>
       </Head>
       <div className={utilStyles.notFound}>
         <header className={utilStyles.notFound__header}>ページが見つかりません。</header>
