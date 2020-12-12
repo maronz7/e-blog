@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Link from "next/link"
 import Layout from "../../components/layout/layout"
-import styles from "../../styles/Archive.module.css"
+import styles from "../../styles/Archive/Archive.module.css"
 import {siteTitle} from "../../components/layout/layout"
 
 export default function ArchiveList(props) {

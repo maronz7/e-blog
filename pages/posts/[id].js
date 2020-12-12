@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import styles from '../../components/article/article.module.css'
 import Layout from '../../components/layout/layout'
-import utilStyles from '../../styles/utils.module.css'
+import utilStyles from '../../styles/utils/utils.module.css'
 import Date from '../../components/date'
 import {siteTitle} from "../../components/layout/layout"
 

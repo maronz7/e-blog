@@ -5,7 +5,7 @@ import { siteTitle } from "../../components/layout/layout"
 import MuiPagination from '@material-ui/lab/Pagination';
 import { withStyles } from '@material-ui/core/styles';
 import { useEffect, useState } from 'react'
-import utilsStyles from '../../styles/utils.module.css'
+import utilsStyles from '../../styles/utils/utils.module.css'
 
 const COUNT_PER_PAGE = 5;
 
@@ -63,7 +63,7 @@ export const getStaticProps = async (context) => {
     const key = {
     headers: { 'X-API-KEY': process.env.API_KEY },
   };
-  const data = await fetch('https://e-blog.microcms.io/api/v1/blog', key)
+  const data = await fetch('https://e-blog.microcms.io/api/v1/blog?limit=100', key)
     .then(res => res.json())
     .catch(() => null);
 
@@ -88,14 +88,14 @@ export const getStaticPaths = async () => {
   const key = {
     headers: { 'X-API-KEY': process.env.API_KEY },
   };
-  const data = await fetch('https://e-blog.microcms.io/api/v1/blog', key)
+  const data = await fetch('https://e-blog.microcms.io/api/v1/blog?limit=100', key)
     .then(res => res.json())
     .catch(() => null);
 
   let paths = []
   data.contents.forEach(content => {
     if (content.category) {
-      paths.push(`/category/${content.category.name}`)
+        paths.push(`/category/${content.category.name}`)
     }
   });
 

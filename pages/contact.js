@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Layout, { siteTitle } from '../components/layout/layout'
-import styles from '../styles/Contact.module.css'
+import styles from '../styles/Contact/Contact.module.css'
 import React from 'react'
 
 class ContactForm extends React.Component {

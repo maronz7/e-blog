@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import Layout, { siteTitle } from '../components/layout/layout'
-import styles from '../styles/About.module.css'
+import styles from '../styles/About/About.module.css'
 import { FaGithub } from 'react-icons/fa'
 
 export default function About() {

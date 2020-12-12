@@ -1,5 +1,5 @@
 import React from 'react'
-import utilStyles from '../../styles/utils.module.css'
+import utilStyles from '../../styles/utils/utils.module.css'
 import Link from 'next/link'
 import Date from '../date'
 import styles from './article.module.css'

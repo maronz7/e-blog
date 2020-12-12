@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Layout, { siteTitle } from '../components/layout/layout'
-import utilsStyles from '../styles/utils.module.css'
+import utilsStyles from '../styles/utils/utils.module.css'
 import Article from '../components/article/article'
 import MuiPagination from '@material-ui/lab/Pagination';
 import { withStyles } from '@material-ui/core/styles';
