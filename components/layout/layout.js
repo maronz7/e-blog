@@ -34,6 +34,7 @@ export default function Layout({ children, home, sidebar }) {
             <li><Link href="/"><a>Home</a></Link></li>
             <li><Link href="/about"><a>About</a></Link></li>
             <li><Link href="/category/list"><a>Category</a></Link></li>
+            <li><Link href="/archive/list"><a>Archive</a></Link></li>
             <li><Link href="/contact"><a>Contact</a></Link></li>
           </ul>
         </nav>
@@ -57,6 +58,9 @@ export default function Layout({ children, home, sidebar }) {
               <p>学びを発信するブログです。<br />プログラミング関係が多め。</p>
             </div>
           </a></Link>
+          <div className={styles.sidebar__tweets}>
+            <a class="twitter-timeline" data-height="700" href="https://twitter.com/_MARO_Z?ref_src=twsrc%5Etfw">Tweets by _MARO_Z</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          </div>
         </section>
       )}
     </div>

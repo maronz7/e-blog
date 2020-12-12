@@ -92,6 +92,7 @@
     background-color: #fff;
     padding: 2em 0;
     transition: .5s;
+    margin-bottom: 2em;
 
     &:hover{
       box-shadow: 2px 2px 4px -2px gray;
@@ -107,6 +108,15 @@
     p{
       font-size: 0.8em;
     }
+
+  }
+
+  &__tweets{
+    border: 1px solid rgba(160,160,160,0.3);
+    background-color: #fff;
+    margin-top: 2em;
+    padding: 1em;
+    transition: .5s;
 
   }
 }

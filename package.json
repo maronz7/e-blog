@@ -8,6 +8,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.57",
     "date-fns": "^2.16.1",
     "next": "10.0.3",
     "react": "17.0.1",

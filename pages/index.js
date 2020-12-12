@@ -1,18 +1,43 @@
 import Head from 'next/head'
-import Link from 'next/link'
 import Layout, { siteTitle } from '../components/layout/layout'
-import styles from '../styles/Home.module.css'
 import utilsStyles from '../styles/utils.module.css'
 import Article from '../components/article/article'
-import { FaAngleDoubleRight } from 'react-icons/fa'
+import MuiPagination from '@material-ui/lab/Pagination';
+import { withStyles } from '@material-ui/core/styles';
+import { useEffect, useState } from 'react'
 
-export default function Home({ allPostsData, hasArchive }) {
+const COUNT_PER_PAGE = 5;
+
+export default function Home({ allPostsData, totalPages }) {
+  const [page, setPage] = useState(1);
+  const [currentPostDatas, setPostDatas] = useState([]);
+
+  useEffect(async () => {
+    changeDatas(page);
+  }, []);
+
+  //ページ番号をクリックしたときの処理
+  const clickPage = (e, page) => {
+    setPage(page);
+    changeDatas(page);
+  }
+
+  const changeDatas = (page) => {
+    setPostDatas(allPostsData.slice((page - 1) * COUNT_PER_PAGE, page * COUNT_PER_PAGE))
+  }
+
+  const Pagination = withStyles({
+    root: {
+      display: 'inline-block', 
+    },
+  })(MuiPagination);
+
   return (
     <Layout home sidebar>
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      {allPostsData.map(postData => (
+      {currentPostDatas.map(postData => (
         <Article
           id={postData.id}
           title={postData.title}
@@ -23,29 +48,30 @@ export default function Home({ allPostsData, hasArchive }) {
           key={postData.id}
         />
       ))}
-      {hasArchive ? (
-        <div className={styles.homeArchive}>
-          <Link href="/archive/[page]" as="/archive/2"><a><FaAngleDoubleRight className={utilsStyles.doubleRight} />NEXT PAGE</a></Link>
-        </div>
-      ) : ``}
+      <div className={utilsStyles.pagination}>
+        <Pagination
+          count={totalPages}         //総ページ数
+          color="primary"       //ページネーションの色
+          onChange={clickPage}  //変更されたときに走る関数。第2引数にページ番号が入る
+          page={page}           //現在のページ番号
+        />
+      </div>
     </Layout>
   );
 }
 
 export const getStaticProps = async () => {
-  const MAX_COUNT = 4;
   const key = {
     headers: { 'X-API-KEY': process.env.API_KEY },
   };
-  const data = await fetch('https://e-blog.microcms.io/api/v1/blog', key)
+  const data = await fetch('https://e-blog.microcms.io/api/v1/blog?limit=100', key)
     .then(res => res.json())
     .catch(() => null);
-  const hasArchive = data.contents.length > MAX_COUNT;
 
   return {
     props: {
-      allPostsData: data.contents.slice(0, MAX_COUNT),
-      hasArchive
+      allPostsData: data.contents,
+      totalPages: Math.ceil(data.contents.length / COUNT_PER_PAGE)
     },
   };
 };

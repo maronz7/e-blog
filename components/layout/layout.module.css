@@ -89,6 +89,7 @@
   background-color: #fff;
   padding: 2em 0;
   transition: .5s;
+  margin-bottom: 2em;
 }
 
 .sidebar__profile:hover {
@@ -104,6 +105,14 @@
 
 .sidebar__profile p {
   font-size: 0.8em;
+}
+
+.sidebar__tweets {
+  border: 1px solid rgba(160, 160, 160, 0.3);
+  background-color: #fff;
+  margin-top: 2em;
+  padding: 1em;
+  transition: .5s;
 }
 
 .backToHome {

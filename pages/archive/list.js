@@ -1,24 +1,24 @@
 import Head from 'next/head'
 import Link from "next/link"
 import Layout from "../../components/layout/layout"
-import styles from "../../styles/Category.module.css"
+import styles from "../../styles/Archive.module.css"
 import {siteTitle} from "../../components/layout/layout"
 
-export default function CategoryList(props) {
+export default function ArchiveList(props) {
   return (
     <Layout sidebar>
       <Head>
-        <title>{siteTitle} - Category List</title>
+        <title>{siteTitle} - Archive List</title>
       </Head>
       <div className={styles.container}>
-      <ul className={styles.categoryList}>
-        {Object.keys(props.allCategory).map(category => 
+      <ul className={styles.archiveList}>
+        {Object.keys(props.archives).map(archive => 
         (
-        <li className={styles.categoryList__item} key={category}>
+        <li className={styles.archiveList__item} key={archive}>
           <Link href={{
-              pathname: '/category/[category]',
-              query: {category: category}
-            }}><a>{category} ({props.allCategory[category]})</a>
+              pathname: '/archive/[archive]',
+              query: {archive: archive}
+            }}><a>{archive} ({props.archives[archive]})</a>
           </Link>
           </li>
           )
@@ -37,21 +37,20 @@ export const getStaticProps = async () => {
     .then(res => res.json())
     .catch(() => null);
 
-  let allCategory = {}
+  let archives = {}
   data.contents.forEach(content => {
-    if(content.category){
-      const categoryName = content.category.name
-      if(categoryName in allCategory){
-        allCategory[categoryName] += 1
+      const archiveDate = content.createdAt.slice(0,7)
+      if(archiveDate in archives){
+        archives[archiveDate] += 1
       } else{
-        allCategory[categoryName] = 1
+        archives[archiveDate] = 1
       }
-    }
+    
   })
 
   return {
     props: {
-      allCategory: allCategory 
+      archives: archives 
     },
   };
 };
