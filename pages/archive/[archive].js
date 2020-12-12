@@ -5,7 +5,7 @@ import { siteTitle } from "../../components/layout/layout"
 import MuiPagination from '@material-ui/lab/Pagination';
 import { withStyles } from '@material-ui/core/styles';
 import { useEffect, useState } from 'react'
-import utilsStyles from '../../styles/utils.module.css'
+import utilsStyles from '../../styles/utils/utils.module.css'
 
 const COUNT_PER_PAGE = 5;
 
