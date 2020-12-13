@@ -1,8 +1,8 @@
 import Head from 'next/head'
-import Layout, { siteTitle } from '../components/layout/layout'
 import utilStyles from '../styles/utils/utils.module.css'
+import { Layout, siteTitle } from '../components/layout/layout'
 
-export default function Custom404() {
+const Custom404 = ()=>  {
     return (
     <Layout>
       <Head>
@@ -15,3 +15,4 @@ export default function Custom404() {
   );
 }
 
+export default Custom404

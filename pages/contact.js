@@ -1,9 +1,9 @@
-import Head from 'next/head'
-import Layout, { siteTitle } from '../components/layout/layout'
-import styles from '../styles/Contact/Contact.module.css'
 import React from 'react'
+import Head from 'next/head'
+import styles from '../styles/Contact/Contact.module.css'
+import {Layout, siteTitle } from '../components/layout/layout'
 
-class ContactForm extends React.Component {
+export default class ContactForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -122,6 +122,4 @@ class ContactForm extends React.Component {
     );
   }
 }
-
-export default ContactForm;
 

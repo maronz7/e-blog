@@ -1,10 +1,9 @@
-import React from 'react'
-import utilStyles from '../../styles/utils/utils.module.css'
 import Link from 'next/link'
-import Date from '../date'
+import utilStyles from '../../styles/utils/utils.module.css'
 import styles from './article.module.css'
+import { Date } from '../date'
 
-const Article = (props) => {
+export const Article = (props) => {
 
   const summaryText = props.content.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, '').substr(0, 200);
 
@@ -15,7 +14,7 @@ const Article = (props) => {
           <div className={styles.articleList__image}>
             {props.imageUrl ? (
               <img src={props.imageUrl} />
-            ) : <img src="/noImage.png" />}
+            ) : <img src="/images/noImage.png" />}
           </div>
           <div className={styles.articleList__summary}>
             <h2>{props.title}</h2>
@@ -34,5 +33,3 @@ const Article = (props) => {
     </Link>
   )
 }
-
-export default Article;

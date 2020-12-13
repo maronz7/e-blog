@@ -1,15 +1,12 @@
 import Head from 'next/head'
-import Layout from "../../components/layout/layout"
-import Article from '../../components/article/article'
-import { siteTitle } from "../../components/layout/layout"
-import MuiPagination from '@material-ui/lab/Pagination';
-import { withStyles } from '@material-ui/core/styles';
-import { useEffect, useState } from 'react'
 import utilsStyles from '../../styles/utils/utils.module.css'
+import { Layout } from "../../components/layout/layout"
+import { Article } from '../../components/article/article'
+import { siteTitle } from "../../components/layout/layout"
+import { useEffect, useState } from 'react'
+import { COUNT_PER_PAGE, Pagination } from '../../components/pagination'
 
-const COUNT_PER_PAGE = 5;
-
-export default function Archive({ archivedPostsData, totalPages }) {
+const Archive = ({ archivePostsData, totalPages }) => {
 
   const [page, setPage] = useState(1);
   const [currentPostDatas, setPostDatas] = useState([]);
@@ -24,14 +21,8 @@ export default function Archive({ archivedPostsData, totalPages }) {
   }
 
   const changeDatas = (page) => {
-    setPostDatas(archivedPostsData.slice((page - 1) * COUNT_PER_PAGE, page * COUNT_PER_PAGE))
+    setPostDatas(archivePostsData.slice((page - 1) * COUNT_PER_PAGE, page * COUNT_PER_PAGE))
   }
-
-  const Pagination = withStyles({
-    root: {
-      display: 'inline-block',
-    },
-  })(MuiPagination);
 
   return (
     <Layout sidebar>
@@ -60,6 +51,8 @@ export default function Archive({ archivedPostsData, totalPages }) {
   )
 }
 
+export default Archive
+
 export const getStaticProps = async ({ params }) => {
   const key = {
     headers: { 'X-API-KEY': process.env.API_KEY },
@@ -69,7 +62,7 @@ export const getStaticProps = async ({ params }) => {
     .catch(() => null);
   return {
     props: {
-      archivedPostsData: data.contents,
+      archivePostsData: data.contents,
       totalPages: Math.ceil(data.contents.length / COUNT_PER_PAGE)
     },
   };

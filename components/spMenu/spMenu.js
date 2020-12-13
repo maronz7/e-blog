@@ -1,8 +1,8 @@
-import React from 'react';
-import Modal from 'react-modal'
-import styles from './spMenu.module.css'
-import { FaBars, FaTimes } from 'react-icons/fa'
 import Link from 'next/link'
+import styles from './spMenu.module.css'
+import Modal from 'react-modal'
+import { FaBars, FaTimes } from 'react-icons/fa'
+import { useState } from 'react'
 
 const customStyles = {
   content: {
@@ -16,14 +16,16 @@ const customStyles = {
   }
 };
 
-const SpMenu = () => {
-  const [modalIsOpen, setIsOpen] = React.useState(false);
-  function openModal() {
+export const SpMenu = () => {
+  const [modalIsOpen, setIsOpen] = useState(false);
+  
+  const openModal = () => {
     setIsOpen(true);
   }
 
-  function closeModal() {
+  const closeModal = () => {
     setIsOpen(false);
+    
   }
   return (
     <div>
@@ -40,7 +42,8 @@ const SpMenu = () => {
           <ul className={styles.spMenuList}>
             <li><Link href="/"><a>Home</a></Link></li>
             <li><Link href="/about"><a>About</a></Link></li>
-            <li><Link href="/"><a>Category</a></Link></li>
+            <li><Link href="/category/list"><a>Category</a></Link></li>
+            <li><Link href="/archive/list"><a>Archive</a></Link></li>
             <li><Link href="/contact"><a>Contact</a></Link></li>
           </ul>
         </nav>
@@ -48,5 +51,3 @@ const SpMenu = () => {
     </div>
   );
 }
-
-export default SpMenu;

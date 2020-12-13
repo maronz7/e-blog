@@ -1,14 +1,11 @@
 import Head from 'next/head'
-import Layout, { siteTitle } from '../components/layout/layout'
 import utilsStyles from '../styles/utils/utils.module.css'
-import Article from '../components/article/article'
-import MuiPagination from '@material-ui/lab/Pagination';
-import { withStyles } from '@material-ui/core/styles';
+import {Layout, siteTitle } from '../components/layout/layout'
+import { Article } from '../components/article/article'
+import { COUNT_PER_PAGE, Pagination } from '../components/pagination'
 import { useEffect, useState } from 'react'
 
-const COUNT_PER_PAGE = 5;
-
-export default function Home({ allPostsData, totalPages }) {
+const Home = ({ allPostsData, totalPages }) => {
   const [page, setPage] = useState(1);
   const [currentPostDatas, setPostDatas] = useState([]);
 
@@ -25,12 +22,6 @@ export default function Home({ allPostsData, totalPages }) {
   const changeDatas = (page) => {
     setPostDatas(allPostsData.slice((page - 1) * COUNT_PER_PAGE, page * COUNT_PER_PAGE))
   }
-
-  const Pagination = withStyles({
-    root: {
-      display: 'inline-block', 
-    },
-  })(MuiPagination);
 
   return (
     <Layout home sidebar>
@@ -59,6 +50,8 @@ export default function Home({ allPostsData, totalPages }) {
     </Layout>
   );
 }
+
+export default Home
 
 export const getStaticProps = async () => {
   const key = {

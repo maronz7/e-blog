@@ -1,17 +1,19 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import styles from './layout.module.css'
 import utilStyles from '../../styles/utils/utils.module.css'
-import Link from 'next/link'
-import SpMenu from '../spMenu/spMenu'
+import { SpMenu } from '../spMenu/spMenu'
+import { TwitterTimelineEmbed } from 'react-twitter-embed'
 
 const name = 'Kurihara Keisuke'
 export const siteTitle = 'E-Blog'
 
-export default function Layout({ children, home, sidebar }) {
+export const Layout = ({ children, home, sidebar }) => {
   return (
     <div className={styles.wrapper}>
       <Head>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
         <meta
           name="description"
           content="E-Blog : 技術の学びを発信するブログ"
@@ -59,7 +61,11 @@ export default function Layout({ children, home, sidebar }) {
             </div>
           </a></Link>
           <div className={styles.sidebar__tweets}>
-            <a class="twitter-timeline" data-height="700" href="https://twitter.com/_MARO_Z?ref_src=twsrc%5Etfw">Tweets by _MARO_Z</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <TwitterTimelineEmbed
+              sourceType="profile"
+              screenName="_MARO_Z"
+              options={{ height: 400 }}
+            />
           </div>
         </section>
       )}

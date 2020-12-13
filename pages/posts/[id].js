@@ -1,13 +1,12 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import styles from '../../components/article/article.module.css'
-import Layout from '../../components/layout/layout'
 import utilStyles from '../../styles/utils/utils.module.css'
-import Date from '../../components/date'
-import {siteTitle} from "../../components/layout/layout"
+import { Layout } from '../../components/layout/layout'
+import { Date } from '../../components/date'
+import { siteTitle } from "../../components/layout/layout"
 
-
-export default function Post({ postData }) {
+const Post = ({ postData }) => {
   return (
     <Layout sidebar>
       <Head>
@@ -41,16 +40,7 @@ export default function Post({ postData }) {
   );
 }
 
-export const getStaticPaths = async () => {
-  const key = {
-    headers: { 'X-API-KEY': process.env.API_KEY },
-  };
-  const data = await fetch('https://e-blog.microcms.io/api/v1/blog', key)
-    .then(res => res.json())
-    .catch(() => null);
-  const paths = data.contents.map(content => `/posts/${content.id}`);
-  return { paths, fallback: false };
-};
+export default Post
 
 export const getStaticProps = async context => {
   const id = context.params.id;
@@ -68,4 +58,15 @@ export const getStaticProps = async context => {
       postData: data,
     },
   };
+};
+
+export const getStaticPaths = async () => {
+  const key = {
+    headers: { 'X-API-KEY': process.env.API_KEY },
+  };
+  const data = await fetch('https://e-blog.microcms.io/api/v1/blog?limit=100', key)
+    .then(res => res.json())
+    .catch(() => null);
+  const paths = data.contents.map(content => `/posts/${content.id}`);
+  return { paths, fallback: false };
 };

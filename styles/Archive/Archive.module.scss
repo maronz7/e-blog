@@ -1,20 +1,14 @@
+@import "../utils/utils.module.scss";
+
 .container{
-  padding: 3em 3em 1em 3em;
-  background: #fff;
-  border: 1px solid rgba(160,160,160,0.3);
-  margin: 0 0 2em 0;
-  position: relative;
-  width: 100%;
+  @include mainContainer();
 
   .archiveList{
     list-style-type: none;
 
     &__item{
       margin: 1em 0;
-      border-bottom: 1px solid rgba(160,160,160,0.3);
+      border-bottom: $baseBorder;
     }
   }
-
-  
-
 }

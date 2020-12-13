@@ -1,10 +1,10 @@
 import Head from 'next/head'
 import Link from "next/link"
-import Layout from "../../components/layout/layout"
 import styles from "../../styles/Category/Category.module.css"
-import {siteTitle} from "../../components/layout/layout"
+import { Layout } from "../../components/layout/layout"
+import { siteTitle } from "../../components/layout/layout"
 
-export default function CategoryList(props) {
+const CategoryList = ({allCategory}) => {
   return (
     <Layout sidebar>
       <Head>
@@ -12,13 +12,13 @@ export default function CategoryList(props) {
       </Head>
       <div className={styles.container}>
       <ul className={styles.categoryList}>
-        {Object.keys(props.allCategory).map(category => 
+        {Object.keys(allCategory).map(category => 
         (
         <li className={styles.categoryList__item} key={category}>
           <Link href={{
               pathname: '/category/[category]',
               query: {category: category}
-            }}><a>{category} ({props.allCategory[category]})</a>
+            }}><a>{category} ({allCategory[category]})</a>
           </Link>
           </li>
           )
@@ -28,6 +28,8 @@ export default function CategoryList(props) {
       </Layout>
   )
 }
+
+export default CategoryList
 
 export const getStaticProps = async () => {
   const key = {

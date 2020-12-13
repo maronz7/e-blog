@@ -1,10 +1,10 @@
 import Head from 'next/head'
 import Link from "next/link"
-import Layout from "../../components/layout/layout"
 import styles from "../../styles/Archive/Archive.module.css"
-import {siteTitle} from "../../components/layout/layout"
+import { Layout } from "../../components/layout/layout"
+import { siteTitle } from "../../components/layout/layout"
 
-export default function ArchiveList(props) {
+const ArchiveList = (props) => {
   return (
     <Layout sidebar>
       <Head>
@@ -28,6 +28,8 @@ export default function ArchiveList(props) {
       </Layout>
   )
 }
+
+export default ArchiveList
 
 export const getStaticProps = async () => {
   const key = {
